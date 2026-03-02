@@ -1,0 +1,135 @@
+.contact-section {
+  --contact-bg: var(--surface, #ffffff);
+  --contact-fg: var(--text-primary, #16181d);
+  --contact-border: var(--border-color, #d8dee9);
+  --contact-focus: var(--accent, #3366ff);
+  --contact-error: var(--error, #cf1b1b);
+  --contact-shadow: 0 10px 35px rgb(12 18 38 / 8%);
+
+  padding: clamp(2rem, 4vw, 4rem) 1rem;
+  background: var(--contact-bg);
+  color: var(--contact-fg);
+}
+
+.contact-container {
+  width: min(100%, 760px);
+  margin-inline: auto;
+}
+
+.contact-title {
+  margin: 0 0 1.25rem;
+  font-size: clamp(1.5rem, 2.5vw, 2rem);
+  line-height: 1.2;
+}
+
+.contact-form {
+  display: grid;
+  gap: 1rem;
+  padding: clamp(1rem, 2vw, 1.5rem);
+  border: 1px solid var(--contact-border);
+  border-radius: 0.875rem;
+  box-shadow: var(--contact-shadow);
+  background: var(--contact-bg);
+}
+
+.contact-field {
+  display: grid;
+  gap: 0.45rem;
+}
+
+.contact-label {
+  font-size: 0.95rem;
+  font-weight: 600;
+}
+
+.contact-input,
+.contact-textarea {
+  width: 100%;
+  padding: 0.75rem 0.9rem;
+  border: 1px solid var(--contact-border);
+  border-radius: 0.6rem;
+  font: inherit;
+  color: inherit;
+  background-color: transparent;
+  transition: border-color 120ms ease, box-shadow 120ms ease;
+}
+
+.contact-textarea {
+  min-height: 8rem;
+  resize: vertical;
+}
+
+.contact-input:focus-visible,
+.contact-textarea:focus-visible {
+  outline: none;
+  border-color: var(--contact-focus);
+  box-shadow: 0 0 0 3px rgb(51 102 255 / 24%);
+}
+
+.contact-input.is-error,
+.contact-textarea.is-error {
+  border-color: var(--contact-error);
+}
+
+.contact-error {
+  margin: 0;
+  color: var(--contact-error);
+  font-size: 0.85rem;
+}
+
+.contact-error[hidden] {
+  display: none;
+}
+
+.contact-button {
+  justify-self: start;
+  min-width: 10rem;
+  padding: 0.75rem 1.1rem;
+  border: 0;
+  border-radius: 0.6rem;
+  font: inherit;
+  font-weight: 600;
+  color: var(--button-text, #ffffff);
+  background: var(--contact-focus);
+  cursor: pointer;
+  transition: transform 120ms ease, opacity 120ms ease;
+}
+
+.contact-button:hover:not(:disabled) {
+  transform: translateY(-1px);
+}
+
+.contact-button:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+.contact-status {
+  min-height: 1.25rem;
+  margin: 0;
+  font-size: 0.9rem;
+}
+
+@media (max-width: 640px) {
+  .contact-form {
+    padding: 1rem;
+    border-radius: 0.75rem;
+  }
+
+  .contact-button {
+    justify-self: stretch;
+    width: 100%;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .contact-input,
+  .contact-textarea,
+  .contact-button {
+    transition: none;
+  }
+
+  .contact-button:hover:not(:disabled) {
+    transform: none;
+  }
+}
