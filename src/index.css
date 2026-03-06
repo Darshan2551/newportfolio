@@ -1,0 +1,95 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --bg: 2 6 23;
+  --bg-soft: 15 23 42;
+  --card: 15 23 42;
+  --text: 226 232 240;
+  --text-muted: 148 163 184;
+  --accent: 56 189 248;
+  --accent-2: 168 85 247;
+  --border: 71 85 105;
+}
+
+:root.light {
+  --bg: 248 250 252;
+  --bg-soft: 226 232 240;
+  --card: 255 255 255;
+  --text: 15 23 42;
+  --text-muted: 71 85 105;
+  --accent: 14 116 144;
+  --accent-2: 79 70 229;
+  --border: 148 163 184;
+}
+
+* {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  font-family: "Inter", "Segoe UI", "Helvetica Neue", Arial, sans-serif;
+  color: rgb(var(--text));
+  background:
+    radial-gradient(circle at 12% 10%, rgba(var(--accent), 0.18), transparent 35%),
+    radial-gradient(circle at 88% 8%, rgba(var(--accent-2), 0.18), transparent 35%),
+    linear-gradient(160deg, rgb(var(--bg)) 0%, rgb(var(--bg-soft)) 100%);
+  min-height: 100vh;
+}
+
+.glass {
+  background: rgba(var(--card), 0.64);
+  border: 1px solid rgba(var(--border), 0.36);
+  backdrop-filter: blur(14px);
+}
+
+.muted {
+  color: rgb(var(--text-muted));
+}
+
+@layer components {
+  .container-wrap {
+    @apply mx-auto max-w-7xl px-4 sm:px-6 lg:px-8;
+  }
+
+  .section-block {
+    @apply py-16 sm:py-20;
+  }
+
+  .section-title {
+    @apply text-2xl sm:text-3xl font-bold tracking-tight;
+  }
+
+  .chip {
+    @apply rounded-full border px-3 py-1 text-xs font-medium;
+    border-color: rgba(var(--border), 0.45);
+    color: rgb(var(--text));
+    background: rgba(var(--card), 0.7);
+  }
+
+  .btn-primary {
+    @apply inline-flex items-center gap-2 rounded-xl px-5 py-3 text-sm font-semibold text-white transition-transform duration-200 hover:-translate-y-0.5;
+    background: linear-gradient(120deg, rgb(var(--accent)) 0%, rgb(var(--accent-2)) 100%);
+  }
+
+  .btn-secondary {
+    @apply inline-flex items-center gap-2 rounded-xl border px-5 py-3 text-sm font-semibold transition-colors;
+    border-color: rgba(var(--border), 0.55);
+    color: rgb(var(--text));
+    background: rgba(var(--card), 0.58);
+  }
+
+  .input-base {
+    @apply w-full rounded-xl border px-4 py-3 text-sm outline-none;
+    border-color: rgba(var(--border), 0.5);
+    color: rgb(var(--text));
+    background: rgba(var(--card), 0.62);
+  }
+
+  .input-base:focus {
+    border-color: rgba(var(--accent), 0.8);
+    box-shadow: 0 0 0 3px rgba(var(--accent), 0.2);
+  }
+}
