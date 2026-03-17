@@ -1,0 +1,174 @@
+.projects-section {
+  padding: clamp(3rem, 6vw, 5rem) 1rem;
+  background: #0f172a;
+  color: #e2e8f0;
+}
+
+.projects-header {
+  max-width: 70ch;
+  margin: 0 auto 2rem;
+  text-align: center;
+}
+
+.projects-header h2 {
+  margin: 0 0 0.75rem;
+  font-size: clamp(1.75rem, 3vw, 2.5rem);
+}
+
+.projects-header p {
+  margin: 0;
+  color: #cbd5e1;
+}
+
+.projects-grid {
+  width: min(1100px, 100%);
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 1.25rem;
+}
+
+.project-card {
+  background: #111827;
+  border: 1px solid #1f2937;
+  border-radius: 14px;
+  overflow: hidden;
+  opacity: 0;
+  transform: translateY(22px);
+  transition: opacity 400ms ease, transform 400ms ease, border-color 200ms ease;
+}
+
+.project-card.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .project-card,
+  .project-card.visible {
+    transition: none;
+    transform: none;
+    opacity: 1;
+  }
+}
+
+.project-card:hover,
+.project-card:focus-within {
+  border-color: #38bdf8;
+}
+
+.project-card img {
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  object-fit: cover;
+  display: block;
+}
+
+.project-card-content {
+  padding: 1rem;
+  display: grid;
+  gap: 0.75rem;
+}
+
+.project-card-content h3,
+.project-card-content p {
+  margin: 0;
+}
+
+.project-card-content p {
+  color: #cbd5e1;
+}
+
+.project-tech {
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+  margin: 0;
+  padding: 0;
+}
+
+.project-tech li {
+  background: #1f2937;
+  border-radius: 999px;
+  padding: 0.2rem 0.65rem;
+  font-size: 0.75rem;
+}
+
+.project-open-btn,
+.project-modal-link {
+  width: fit-content;
+  border: 0;
+  border-radius: 8px;
+  background: #38bdf8;
+  color: #0f172a;
+  font-weight: 600;
+  text-decoration: none;
+  cursor: pointer;
+  padding: 0.55rem 0.85rem;
+}
+
+.project-open-btn:hover,
+.project-modal-link:hover {
+  background: #7dd3fc;
+}
+
+.project-open-btn:focus-visible,
+.project-modal-link:focus-visible,
+.project-modal-close:focus-visible {
+  outline: 3px solid #f8fafc;
+  outline-offset: 2px;
+}
+
+.project-modal-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgb(2 6 23 / 70%);
+  display: grid;
+  place-items: center;
+  padding: 1rem;
+  z-index: 1000;
+}
+
+.project-modal {
+  width: min(560px, 100%);
+  background: #111827;
+  border: 1px solid #334155;
+  border-radius: 14px;
+  padding: 1.25rem;
+  position: relative;
+  display: grid;
+  gap: 1rem;
+}
+
+.project-modal h3,
+.project-modal p {
+  margin: 0;
+}
+
+.project-modal p {
+  color: #cbd5e1;
+}
+
+.project-modal-close {
+  position: absolute;
+  top: 0.55rem;
+  right: 0.65rem;
+  border: 0;
+  background: transparent;
+  color: #e2e8f0;
+  font-size: 1.5rem;
+  line-height: 1;
+  cursor: pointer;
+}
+
+@media (max-width: 640px) {
+  .projects-section {
+    padding-inline: 0.75rem;
+  }
+
+  .project-card-content,
+  .project-modal {
+    padding: 1rem;
+  }
+}
